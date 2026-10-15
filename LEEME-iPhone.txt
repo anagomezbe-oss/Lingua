@@ -1,0 +1,10 @@
+LINGUA PARA IPHONE · PAQUETE WEB INSTALABLE
+
+Este paquete contiene la versión actual de Lingua preparada como PWA para Safari. Para instalarla en el iPhone, los archivos primero deben estar publicados en un sitio con HTTPS.
+
+1. Publica el contenido de esta carpeta en una dirección HTTPS.
+2. Abre esa dirección con Safari en el iPhone.
+3. Toca Compartir > Añadir a pantalla de inicio.
+4. Activa “Abrir como app web” si aparece y toca Añadir.
+
+La aplicación conserva el diseño, las actividades, el progreso y el compañero de la versión aprobada. No es un archivo IPA firmado de App Store; compilar y distribuir una app iOS nativa requiere Xcode en macOS y firma de Apple.

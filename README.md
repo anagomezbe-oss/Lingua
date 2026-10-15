@@ -1,14 +1,9 @@
 # Lingua
 
-Sitio web estático instalable como PWA en iPhone y Android. La entrada del sitio es `index.html`.
+Lingua es una aplicación web instalable (PWA) para practicar inglés por niveles CEFR. Funciona en navegadores modernos de escritorio, Android y iPhone.
 
-## Publicar desde GitHub con Vercel
+## Despliegue
 
-1. Descomprime este paquete.
-2. Crea un repositorio en GitHub y sube **el contenido** de esta carpeta (no hace falta subir el ZIP como archivo).
-3. En Vercel, importa ese repositorio y publica el proyecto. No requiere comando de build.
-4. Vercel generará una dirección HTTPS gratuita `*.vercel.app`.
-5. Para que Google y la confirmación de correo regresen a Lingua, añade la URL publicada a las URLs permitidas de redirección en Supabase y configura el origen autorizado de Google.
+Este repositorio está preparado para Vercel como sitio estático: no requiere comando de instalación ni de compilación y su entrada es `index.html` en la raíz.
 
-El dominio `lingua.com` ya está en uso; utiliza la URL de Vercel u otro dominio que te pertenezca.
-
+Para que Google y la confirmación de correo redirijan correctamente, agrega el dominio publicado de Vercel a las URLs permitidas de redirección de Supabase y configura el origen autorizado de Google. El dominio `lingua.com` ya está en uso; la publicación utiliza un subdominio gratuito de Vercel.
