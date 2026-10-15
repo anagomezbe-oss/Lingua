@@ -29,11 +29,12 @@ window.answerGame=function(i){const q=window.gameQuestion;window.gameAsked++;if(
 
 // Arcade games: sentence puzzle, climb-and-fall ladder, and a timed vocabulary snake.
 (function(){
+const gameData=window.linguaGameData||{},dailyWords=gameData.dailyWords||[],genericQuiz=gameData.gameCards||[];
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const mix=a=>{const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
 function level(){return window.chosenLevel||localStorage.getItem('lingua-level')||'A1'}
-function vocab(){const bank=window.LINGUA_CEFR_CONTENT?.vocabulary?.[level()];return bank?.length?bank:words}
-function grammar(){const bank=window.LINGUA_CEFR_CONTENT?.grammar?.[level()];return bank?.length?bank.map(q=>({en:q.q,opts:q.choices,a:q.answer,why:q.why||''})):quiz}
+function vocab(){const bank=window.LINGUA_CEFR_CONTENT?.vocabulary?.[level()];return bank?.length?bank:dailyWords}
+function grammar(){const bank=window.LINGUA_CEFR_CONTENT?.grammar?.[level()];return bank?.length?bank.map(q=>({en:q.q,opts:q.choices,a:q.answer,why:q.why||''})):genericQuiz}
 function panel(html){showAppPanel();appPanel().innerHTML=html}
 window.startGame=function(){panel('<div class="modalhead"><h2>Elige tu reto 🎮</h2><button class="close" onclick="closeModal()">×</button></div><p class="sub">Juega, practica inglés y gana puntos para tu compañero y sus accesorios.</p><div class="game-modes"><button class="game-mode" onclick="startMemoryGame()"><span>🃏</span><b>Encuentra las parejas</b><small>Une cada palabra con su significado.</small></button><button class="game-mode" onclick="startSentenceGame()"><span>🧩</span><b>Rompecabezas de frases</b><small>Ordena las piezas para construir una frase en inglés.</small></button><button class="game-mode" onclick="startQuizGame()"><span>⚡</span><b>Reto rápido</b><small>Responde preguntas de inglés.</small></button><button class="game-mode arcade-mode" onclick="startLadderGame()"><span>🪜</span><b>Escalera de palabras</b><small>Sube con respuestas correctas; si fallas, retrocedes y pierdes puntos de la ronda.</small></button><button class="game-mode arcade-mode" onclick="startSnakeGame()"><span>🐍</span><b>Serpiente de vocabulario</b><small>Tienes 60 segundos para recoger traducciones y ganar puntos.</small></button></div>')};
 window.startLadderGame=function(){const bank=mix(grammar()).slice(0,8);window.ladderGame={bank,round:0,step:0,points:0,answered:false};drawLadder()};
